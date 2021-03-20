@@ -300,8 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid_body: {fileID: 1986615073}
-  thrust_forward: 1
-  thrust_turn: 5
+  vertical_speed: 11
+  horizontal_speed: 11
   screen_top: 11.5
   screen_bottom: -11.5
   screen_left: -19.5

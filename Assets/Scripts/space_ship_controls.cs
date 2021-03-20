@@ -6,10 +6,10 @@ public class space_ship_controls : MonoBehaviour
 {
     // Variables
     public Rigidbody2D rigid_body;
-    public float thrust_forward; // for defining the speed
-    public float thrust_turn;
-    private float input_forward; // for applying the speed
-    private float input_turn;
+    public float vertical_speed = 10; // for defining the speed
+    public float horizontal_speed = 10;
+    private float veritcal_input; // for applying the speed
+    private float horizontal_input;
     public float screen_top;
     public float screen_bottom;
     public float screen_left;
@@ -27,8 +27,8 @@ public class space_ship_controls : MonoBehaviour
     void Update()
     {
         // Check for input from keyboard // Uses Edit -> Project Settings -> Input Manager
-        input_forward = Input.GetAxis("Vertical");
-        input_turn = Input.GetAxis("Horizontal");
+        veritcal_input = Input.GetAxis("Vertical");
+        horizontal_input = Input.GetAxis("Horizontal");
 
         // Screen wraping
         if (transform.position.y > screen_top)
@@ -58,9 +58,12 @@ public class space_ship_controls : MonoBehaviour
 
     }
 
-    private void FixedUpdate() // A Unity function - better to apply forces than per frame
+    private void FixedUpdate() // A Unity function - dedicated physics updater
     {
-        rigid_body.AddRelativeForce(Vector2.up * input_forward); // applied Y axis force
-        rigid_body.AddTorque(-input_turn);
+        // rigid_body.AddRelativeForce(Vector2.up * input_forward); // applied Y axis force
+
+        //update the position
+        transform.position = transform.position + new Vector3(horizontal_input * horizontal_speed * Time.deltaTime, veritcal_input * vertical_speed * Time.deltaTime, 0);
+
     }
 }
