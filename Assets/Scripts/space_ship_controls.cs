@@ -20,6 +20,7 @@ public class space_ship_controls : MonoBehaviour
     // bullets
     public GameObject bullet;
     Vector2 direction_value;
+    public float bullet_speed;
 
 
     // Start is called before the first frame update
@@ -49,8 +50,8 @@ public class space_ship_controls : MonoBehaviour
     {
         // Moves ship along x / y based on input
         move_ship();
-               
-        
+
+
     }
 
     void move_ship() // Moves ship along x / y based on input
@@ -111,7 +112,7 @@ public class space_ship_controls : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             GameObject new_bullet = Instantiate(bullet, transform.position, transform.rotation);
-            new_bullet.GetComponent<Rigidbody2D>().velocity = direction_value;
+            new_bullet.GetComponent<Rigidbody2D>().velocity = direction_value.normalized * bullet_speed;
         }
     }
 }
