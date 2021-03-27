@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class space_ship_controls : MonoBehaviour
+public class space_ship_script : MonoBehaviour
 {
     // Variables
     public Rigidbody2D rigid_body;

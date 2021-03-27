@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cursor_controller : MonoBehaviour
+public class cursor_script : MonoBehaviour
 {
     // initializing the cursor
     public Texture2D cursor;
