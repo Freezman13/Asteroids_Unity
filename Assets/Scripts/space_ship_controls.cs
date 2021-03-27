@@ -13,6 +13,7 @@ public class space_ship_controls : MonoBehaviour
     private float veritcal_input; 
     private float horizontal_input;
     // for screen wrap
+                                // make values flexible, maybe based on camera
     public float screen_top;
     public float screen_bottom;
     public float screen_left;
@@ -20,7 +21,7 @@ public class space_ship_controls : MonoBehaviour
     // bullets
     public GameObject bullet;
     Vector2 direction_value;
-    public float bullet_speed;
+    public float bullet_speed = 10;
 
 
     // Start is called before the first frame update
@@ -113,6 +114,7 @@ public class space_ship_controls : MonoBehaviour
         {
             GameObject new_bullet = Instantiate(bullet, transform.position, transform.rotation);
             new_bullet.GetComponent<Rigidbody2D>().velocity = direction_value.normalized * bullet_speed;
+            Destroy(new_bullet, 4.0f);
         }
     }
 }
