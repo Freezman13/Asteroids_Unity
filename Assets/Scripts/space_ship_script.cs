@@ -36,21 +36,17 @@ public class space_ship_script : MonoBehaviour
         // Check for input from keyboard // Uses Edit -> Project Settings -> Input Manager
         veritcal_input = Input.GetAxis("Vertical");
         horizontal_input = Input.GetAxis("Horizontal");
+                
+        screen_wrap(); // Teleports ship to the opposite end of the screen
 
-        // // Teleports ship to the opposite end of the screen
-        screen_wrap();
-
-        // Rotates the ship towards the cursro
-        face_cursor();
-
-        // Fires bullets
-        fire_primary(direction_value);
+        face_cursor(); // Rotates the ship towards the cursor
+                
+        fire_primary(direction_value); // Fires bullets
     }
 
     private void FixedUpdate() // A Unity function - dedicated physics updater
-    {
-        // Moves ship along x / y based on input
-        move_ship();
+    {        
+        move_ship(); // Moves ship along x / y based on input
 
 
     }
@@ -106,7 +102,7 @@ public class space_ship_script : MonoBehaviour
     void direction_storage(Vector2 direction_cursor)
     {
         direction_value = direction_cursor;
-    }
+    } // Stores the direction of the cursor to use in weapon fire
 
     void fire_primary(Vector2 direction_value)
     {
@@ -116,5 +112,10 @@ public class space_ship_script : MonoBehaviour
             new_bullet.GetComponent<Rigidbody2D>().velocity = direction_value.normalized * bullet_speed;
             Destroy(new_bullet, 4.0f);
         }
+    } // Fires bullets
+
+    private void OnCollisionEnter2D(Collision2D other_object) // Prebuilt Unity function for detecting 2 objects collision (not triggers). Doesn't need to be in update.
+    {
+        Debug.Log("Ship collided with " + other_object.gameObject.name);
     }
 }

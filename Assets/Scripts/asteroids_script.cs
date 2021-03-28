@@ -32,7 +32,9 @@ public class asteroids_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        screen_wrap();
+        screen_wrap(); // Teleports asteroid to the opposite end of the screen
+
+
     }
 
     void screen_wrap() // Teleports asteroid to the opposite end of the screen
@@ -61,5 +63,11 @@ public class asteroids_script : MonoBehaviour
             current_position.x = screen_right;
             transform.position = current_position;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other_object) // Prebuilt unity functonion used for bullets. Doesn't need to be in update.
+    {
+        Debug.Log("Asteroid collided with " + other_object.gameObject.name);
+        Destroy(other_object.gameObject);
     }
 }

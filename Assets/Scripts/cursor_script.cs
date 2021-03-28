@@ -13,11 +13,6 @@ public class cursor_script : MonoBehaviour
         Cursor.SetCursor(cursor_type, hotspot, CursorMode.Auto);
     }
 
-  //  private void Awake()
-    //{
-        
-  //  }
-
     // Start is called before the first frame update
     void Start()
     {
