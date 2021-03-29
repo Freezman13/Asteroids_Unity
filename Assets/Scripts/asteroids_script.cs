@@ -7,14 +7,17 @@ public class asteroids_script : MonoBehaviour
     // Variables
     public Rigidbody2D rigid_body;
     public float max_thrust;
-    public float max_torque;   
+    public float max_torque;
     // for screen wrap
-    // make values flexible, maybe based on camera
     public float screen_top;
     public float screen_bottom;
     public float screen_left;
     public float screen_right;
-
+    //size variables
+    public enum size {large, medium, small}
+    public size asteroid_size;
+    public GameObject asteroid_medium;
+    public GameObject asteroid_small;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +29,6 @@ public class asteroids_script : MonoBehaviour
         // Adds torque
         float torque = Random.Range(-max_torque, max_torque);
         rigid_body.AddTorque(torque);
-
     }
 
     // Update is called once per frame
@@ -65,9 +67,37 @@ public class asteroids_script : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other_object) // Prebuilt unity functonion used for bullets. Doesn't need to be in update.
+    private void OnTriggerEnter2D(Collider2D other_object) // Prebuilt unity functonion. Doesn't need to be in update.
     {
         Debug.Log("Asteroid collided with " + other_object.gameObject.name);
-        Destroy(other_object.gameObject);
+
+        if(other_object.CompareTag("Projectile")) // Checks the tag of the object
+        {
+            Destroy(other_object.gameObject); // Destroys collided projectile
+
+            if(asteroid_size == size.large) // spawns medium asteroid
+            {
+                for (int i=0; i<2; i++)
+                {
+                    Instantiate(asteroid_medium, transform.position, transform.rotation); // spawns nedium asteroid
+                    // sets spawned asteroid's size to medium in the prefab
+                }
+            }
+            else if (asteroid_size == size.medium) // spawns small asteroid
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    Instantiate(asteroid_small, transform.position, transform.rotation); // spawns small asteroid
+                    // sets spawned asteroid's size to small in the prefab
+                }
+            }
+            else if (asteroid_size == size.small) // destroys asteroid
+            {
+                
+            }
+
+            Destroy(gameObject); // destroys asteroid
+        }
+        
     }
 }

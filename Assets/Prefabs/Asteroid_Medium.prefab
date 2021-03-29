@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 750527894495694298}
   - component: {fileID: 7007555882854558036}
+  - component: {fileID: 5220870273756569146}
+  - component: {fileID: -4480012726451134312}
+  - component: {fileID: -8645160648480629286}
   m_Layer: 0
   m_Name: Asteroid_Medium
   m_TagString: Untagged
@@ -81,3 +84,87 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &5220870273756569146
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984857476341960247}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 2.028468
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &-4480012726451134312
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984857476341960247}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.2, y: 1.2}
+    newSize: {x: 1.2, y: 1.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.31850326, y: 0.057589166}
+      - {x: 0.26912588, y: 0.16966844}
+      - {x: 0.17777506, y: 0.24565542}
+      - {x: 0.02376217, y: 0.2785032}
+      - {x: -0.028608471, y: 0.2813511}
+      - {x: -0.14360842, y: 0.20566379}
+      - {x: -0.19416143, y: 0.11600569}
+      - {x: -0.19966827, y: 0.07153688}
+      - {x: -0.26864883, y: -0.05386742}
+      - {x: -0.21222526, y: -0.15788044}
+      - {x: -0.20390753, y: -0.22087388}
+      - {x: -0.053470492, y: -0.27835763}
+      - {x: 0.08280768, y: -0.23956303}
+      - {x: 0.2172978, y: -0.13507275}
+      - {x: 0.2610196, y: -0.032410916}
+--- !u!114 &-8645160648480629286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984857476341960247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3dc47a19fcf866499f8a71418d11c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid_body: {fileID: 5220870273756569146}
+  max_thrust: 150
+  max_torque: 15
+  screen_top: 11
+  screen_bottom: -11
+  screen_left: -19
+  screen_right: 19
+  asteroid_size: 1
+  asteroid_medium: {fileID: 5984857476341960247}
+  asteroid_small: {fileID: 5352786186173058575, guid: f9b3db84230924b4796fbfcddb4d452f,
+    type: 3}

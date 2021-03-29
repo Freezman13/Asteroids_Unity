@@ -172,3 +172,7 @@ MonoBehaviour:
   screen_bottom: -11.5
   screen_left: -19
   screen_right: 19
+  asteroid_medium: {fileID: 5984857476341960247, guid: 834ba71e0864bed48b61178f838531c8,
+    type: 3}
+  asteroid_small: {fileID: 5352786186173058575, guid: f9b3db84230924b4796fbfcddb4d452f,
+    type: 3}

@@ -13,7 +13,6 @@ public class space_ship_script : MonoBehaviour
     private float veritcal_input; 
     private float horizontal_input;
     // for screen wrap
-                                // make values flexible, maybe based on camera
     public float screen_top;
     public float screen_bottom;
     public float screen_left;
